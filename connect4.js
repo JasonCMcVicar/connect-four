@@ -15,14 +15,26 @@ const board = []; // array of rows, each row is array of cells  (board[y][x])
 
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x]) // grabbing location?
+ * 1. does - creates matrix, board 
+ * 2. take -  width height variables
+ * 3. update global variable board (array matrix)
  */
-
 function makeBoard() {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
   //create matrix with y = columns, x = rows
+  for(let y = 0; y < HEIGHT; y++){
+    board.push([])
+    for(let x = 0; x < WIDTH; x++){
+      board[y].push('null');
+    }
+  }
 }
 
-/** makeHtmlBoard: make HTML table and row of column tops. */
+/** makeHtmlBoard: make HTML table and row of column tops. 
+ * 1. creating html board 
+ * 2. take global consts width height
+ * 3. update html dom
+*/
 
 function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"

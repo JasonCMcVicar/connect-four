@@ -15,7 +15,7 @@ const board = []; // array of rows, each row is array of cells  (board[y][x])
 
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x]) // grabbing location?
- * 1. does - creates matrix, board 
+ * 1. does - creates matrix, board
  * 2. take -  width height variables
  * 3. update global variable board (array matrix)
  */
@@ -30,8 +30,8 @@ function makeBoard() {
   }
 }
 
-/** makeHtmlBoard: make HTML table and row of column tops. 
- * 1. creating html board 
+/** makeHtmlBoard: make HTML table and row of column tops.
+ * 1. creating html board
  * 2. take global consts width height
  * 3. update html dom
 */
@@ -42,14 +42,15 @@ function makeHtmlBoard() {
 
   // TODO: add comment for this code
   //variable top grabs element id 'tr' (table row, td = table data tag, th = header tag)
-  let top = document.createElement("tr");
-  //adds "id"=column-top to element tr
+  const top = document.createElement("tr");
+  //adds "id"=column-top to element tr and makes it clickable
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
-  // TODO: add comment for this code
+  // TODO: creating the top row (headcell) where we can select where we will drop piece
+  // and appending it to the DOM
   for (let x = 0; x < WIDTH; x++) {
-    let headCell = document.createElement("td");
+    const headCell = document.createElement("td");
     headCell.setAttribute("id", x);
     top.append(headCell);
   }
@@ -89,7 +90,12 @@ function findSpotForCol(x) {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  let divPiece = document.createElement('div');
+  let cell = document.getElementById(`${y}-${x}`);
+  divPiece.className = 'piece p1';
+  cell.appendChild(divPiece);
 }
+
 
 /** endGame: announce game end */
 
